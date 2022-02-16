@@ -2,12 +2,12 @@
   <div class="register">
     <label >
       メールアドレス：
-      <input v-mode="email" type="email" required />
+      <input v-model="email" type="email" required />
     </label>
     <br/>
     <label >
       パスワード：
-      <input v-mode="password" type="password" required />
+      <input v-model="password" type="password" required />
     </label>
     <br/>
     <button @click="register">新規登録</button>
@@ -21,12 +21,14 @@ import firebase from '~/plugins/firebase'
 export default {
   data() {
     return {
-      email: null,
-      password: null,
+      email: 'ccc',
+      password: 'ddd',
     }
   },
   methods: {
     register() {
+      console.log(this.email);
+      console.log(this.password);
       if(!this.email || !this.password) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
